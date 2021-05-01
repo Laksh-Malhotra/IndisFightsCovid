@@ -17,7 +17,6 @@ const getJSON = async function (url) {
 
 const getData = async function () {
   const data = await getJSON("https://corona.blloc.com/current?country=India");
-  console.log(data);
 
   render(data);
 
