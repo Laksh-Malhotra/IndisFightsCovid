@@ -40,29 +40,35 @@ const render = function (data) {
   <section id="info">
         <div class="stats">
           <h2 class="title">Coronavirus Cases:</h2>
-          <h1 class="number-1 mb-1">${data.confirmed}</h1>
+          <h1 class="number-1 mb-1">${data.confirmed.toLocaleString(
+            "en-IN"
+          )}</h1>
           <a class="btn" href="#stateview">View By States</a>
         </div>
         <div class="stats">
           <h2 class="title">Deaths:</h2>
-          <h1 class="number-2">${data.deaths}</h1>
+          <h1 class="number-2">${data.deaths.toLocaleString("en-IN")}</h1>
         </div>
         <div class="stats">
           <h2 class="title">Recovered:</h2>
-          <h1 class="number-3">${data.recovered}</h1>
+          <h1 class="number-3">${data.recovered.toLocaleString("en-IN")}</h1>
         </div>
       </section>
       <section id="info-1">
         <div class="left">
           <h3 class="title">ACTIVE CASES</h3>
-          <h4 class="number-1">${
-            data.confirmed - data.recovered - data.deaths
-          }</h4>
+          <h4 class="number-1">${(
+            data.confirmed -
+            data.recovered -
+            data.deaths
+          ).toLocaleString("en-IN")}</h4>
           <p>Currently Infected Patients</p>
         </div>
         <div class="right">
           <h3 class="title">CLOSED CASES</h3>
-          <h4 class="number-3">${data.recovered + data.deaths}</h4>
+          <h4 class="number-3">${(data.recovered + data.deaths).toLocaleString(
+            "en-IN"
+          )}</h4>
           <p>Cases which had an outcome</p>
         </div>
       </section>
@@ -85,9 +91,9 @@ const table = function (state) {
   return `
   <tr>
     <td>${state.label}</td>
-    <td>${state.confirmed}</td>
-    <td>${state.deaths}</td>
-    <td>${state.recovered}</td>
+    <td>${state.confirmed.toLocaleString("en-IN")}</td>
+    <td>${state.deaths.toLocaleString("en-IN")}</td>
+    <td>${state.recovered.toLocaleString("en-IN")}</td>
   </tr>
   `;
 };
