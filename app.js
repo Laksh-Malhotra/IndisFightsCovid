@@ -1,5 +1,6 @@
 "use strict";
 const container = document.querySelector("#container");
+// const ctx = document.getElementById("myChart").getContext("2d");
 
 const getJSON = async function (url) {
   try {
@@ -19,11 +20,23 @@ const getData = async function () {
   console.log(data);
 
   render(data);
+
+  // renderGraph(data);
 };
 getData();
 
 const render = function (data) {
   const html = `
+  <h3 class="head">
+    COVID-19 CORONAVIRUS PANDEMIC
+      <span
+      ><a
+        target="_blank"
+        href="https://www.who.int/health-topics/coronavirus#tab=tab_1"
+        >Know More</a
+      ></span
+      >
+  </h3>
   <section id="info">
         <div class="stats">
           <h2 class="title">Coronavirus Cases:</h2>
@@ -78,4 +91,27 @@ const table = function (state) {
   </tr>
   `;
 };
-// getJSON("https://covid-19india-api.herokuapp.com/v2.0/state_data");
+
+// const renderGraph = function (data) {
+//   const myChart = new Chart(ctx, {
+//     type: "doughnut",
+//     data: {
+//       labels: ["Total Cases", "Deaths", "Recovered"],
+//       color: ["#fff"],
+//       datasets: [
+//         {
+//           label: "# of Votes",
+//           data: [data.confirmed, data.deaths, data.recovered],
+//           backgroundColor: ["#fca311", "#d00000", "#00f5d4"],
+//         },
+//       ],
+//     },
+//     options: {
+//       legend: {
+//         labels: {
+//           fontColor: "white",
+//         },
+//       },
+//     },
+//   });
+// };
