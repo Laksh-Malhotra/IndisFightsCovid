@@ -85,6 +85,7 @@ const render = function (data) {
       </section>
   `;
   container.insertAdjacentHTML("beforeend", html);
+  container.style.opacity = 1;
 };
 
 const table = function (state) {
