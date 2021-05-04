@@ -3,6 +3,7 @@
   box-sizing: border-box;
 }
 
+// Base Design
 html {
   scroll-behavior: smooth;
 }
@@ -20,6 +21,10 @@ span {
   border-radius: 8px;
   background-color: #fff;
   padding: 0.5rem;
+}
+
+.btn + .btn {
+  margin-left: 0.5rem;
 }
 
 .mb-1 {
@@ -62,6 +67,7 @@ p {
 }
 
 body {
+  position: relative;
   background: #0575e6; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -95,6 +101,13 @@ body {
     }
   }
 
+  // Error Message
+  .error {
+    font-size: 3rem;
+    height: 70vh;
+  }
+
+  // Sections
   #info,
   #info-1 {
     margin-top: 2rem;
@@ -105,11 +118,19 @@ body {
     justify-content: space-around;
   }
 
-  #stateview {
+  #stateview,
+  #medicine,
+  #oxygen,
+  #ambulance {
     margin: 2rem 0;
     overflow-x: auto;
+
+    h2 {
+      margin-bottom: 1rem;
+    }
   }
 
+  // Tables
   table {
     width: 100%;
     margin-bottom: 2rem 0;
@@ -127,6 +148,7 @@ body {
     padding: 1rem;
   }
 
+  // Footer
   footer {
     border-top: solid #fff 0.2px;
     padding: 0.5rem 0;
@@ -145,6 +167,7 @@ body {
   }
 }
 
+// Navbar
 nav {
   text-align: center;
   margin: auto 0;
@@ -166,12 +189,42 @@ nav {
       #0575e6
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+    #container {
+      max-width: 90%;
+    }
+
     h1 {
       font-size: 2.2rem;
     }
 
+    // Sections
     #info-1 {
       flex-direction: column;
+    }
+
+    // Buttons
+    .btn-1 {
+      grid-area: btn1;
+    }
+
+    .btn-2 {
+      grid-area: btn2;
+    }
+
+    .btn-3 {
+      grid-area: btn3;
+    }
+
+    .btn-4 {
+      grid-area: btn4;
+    }
+
+    .button {
+      display: grid;
+      grid-gap: 0.5rem;
+      grid-template-areas:
+        "btn1 btn2"
+        "btn3 btn4";
     }
   }
 }

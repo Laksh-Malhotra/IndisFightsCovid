@@ -23,6 +23,10 @@ span {
   padding: 0.5rem;
 }
 
+.btn + .btn {
+  margin-left: 0.5rem;
+}
+
 .mb-1 {
   margin-bottom: 1rem;
 }
@@ -64,6 +68,7 @@ p {
 }
 
 body {
+  position: relative;
   background: #0575e6;
   /* fallback for old browsers */
   /* Chrome 10-25, Safari 5.1-6 */
@@ -93,6 +98,11 @@ body .head a {
   font-size: 1rem;
 }
 
+body .error {
+  font-size: 3rem;
+  height: 70vh;
+}
+
 body #info,
 body #info-1 {
   margin-top: 2rem;
@@ -106,9 +116,19 @@ body #info-1 {
       justify-content: space-around;
 }
 
-body #stateview {
+body #stateview,
+body #medicine,
+body #oxygen,
+body #ambulance {
   margin: 2rem 0;
   overflow-x: auto;
+}
+
+body #stateview h2,
+body #medicine h2,
+body #oxygen h2,
+body #ambulance h2 {
+  margin-bottom: 1rem;
 }
 
 body table {
@@ -161,6 +181,9 @@ nav {
     background: linear-gradient(to right, #021b79, #0575e6);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
+  body #container {
+    max-width: 90%;
+  }
   body h1 {
     font-size: 2.2rem;
   }
@@ -169,6 +192,32 @@ nav {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  body .btn-1 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: btn1;
+  }
+  body .btn-2 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: btn2;
+  }
+  body .btn-3 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: btn3;
+  }
+  body .btn-4 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    grid-area: btn4;
+  }
+  body .button {
+    display: -ms-grid;
+    display: grid;
+    grid-gap: 0.5rem;
+        grid-template-areas: "btn1 btn2" "btn3 btn4";
   }
 }
 /*# sourceMappingURL=main.css.map */
