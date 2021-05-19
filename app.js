@@ -29,10 +29,10 @@ const renderError = function (
 };
 
 // Getting data from API calls
-// data1 is of Total Country Cases and Statewise data
-// data2 is of Medicine Suppliers
-// data3 is of Oxygen Suppliers
-// data4 is of Ambulance Drivers
+// data is of Total Country Cases and Statewise data
+// data1 is of Medicine Suppliers
+// data2 is of Oxygen Suppliers
+// data3 is of Ambulance Drivers
 const getData = async function () {
   try {
     const data = await getJSON(
