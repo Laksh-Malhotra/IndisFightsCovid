@@ -35,20 +35,20 @@ const renderError = function (
 // data4 is of Ambulance Drivers
 const getData = async function () {
   try {
-    const data1 = await getJSON(
-      "https://corona.blloc.com/current?country=India"
+    const data = await getJSON(
+      "https://api.rootnet.in/covid19-in/stats/latest"
     );
-    const data2 = await getJSON(
+    const data1 = await getJSON(
       "https://life-api.coronasafe.network/data/medicine_verified.json"
     );
-    const data3 = await getJSON(
+    const data2 = await getJSON(
       "https://life-api.coronasafe.network/data/oxygen_verified.json"
     );
-    const data4 = await getJSON(
+    const data3 = await getJSON(
       "https://life-api.coronasafe.network/data/ambulance_verified.json"
     );
 
-    render(data1, data2, data3, data4);
+    render(data, data1, data2, data3);
   } catch (err) {
     renderError();
   }
@@ -58,10 +58,10 @@ getData();
 // Rendering data to user interface
 const render = function (data, data1, data2, data3) {
   const html = `
-  <section id="info">
+      <section id="info">
         <div class="stats">
           <h2 class="title">Coronavirus Cases:</h2>
-          <h1 class="number-1 mb-1">${data.confirmed.toLocaleString(
+          <h1 class="number-1 mb-1">${data.data.summary.total.toLocaleString(
             "en-IN"
           )}</h1>
           <div class="button">
@@ -73,28 +73,32 @@ const render = function (data, data1, data2, data3) {
         </div>
         <div class="stats">
           <h2 class="title">Deaths:</h2>
-          <h1 class="number-2">${data.deaths.toLocaleString("en-IN")}</h1>
+          <h1 class="number-2">${data.data.summary.deaths.toLocaleString(
+            "en-IN"
+          )}</h1>
         </div>
         <div class="stats">
           <h2 class="title">Recovered:</h2>
-          <h1 class="number-3">${data.recovered.toLocaleString("en-IN")}</h1>
+          <h1 class="number-3">${data.data.summary.discharged.toLocaleString(
+            "en-IN"
+          )}</h1>
         </div>
       </section>
       <section id="info-1">
         <div class="left">
           <h3 class="title">ACTIVE CASES</h3>
           <h4 class="number-1">${(
-            data.confirmed -
-            data.recovered -
-            data.deaths
+            data.data.summary.total -
+            data.data.summary.discharged -
+            data.data.summary.deaths
           ).toLocaleString("en-IN")}</h4>
           <p>Currently Infected Patients</p>
         </div>
         <div class="right">
           <h3 class="title">CLOSED CASES</h3>
-          <h4 class="number-3">${(data.recovered + data.deaths).toLocaleString(
-            "en-IN"
-          )}</h4>
+          <h4 class="number-3">${(
+            data.data.summary.discharged + data.data.summary.deaths
+          ).toLocaleString("en-IN")}</h4>
           <p>Cases which had an outcome</p>
         </div>
       </section>
@@ -107,7 +111,7 @@ const render = function (data, data1, data2, data3) {
             <th>Total Deaths</th>
             <th>Total Recovered</th>
           </tr>
-        ${data.statesData.map(stateTable).join("")}
+        ${data.data.regional.map(stateTable).join("")}
         </table>
       </section>
       <section id="medicine">
@@ -155,10 +159,10 @@ const render = function (data, data1, data2, data3) {
 const stateTable = function (state) {
   return `
   <tr>
-    <td>${state.label}</td>
-    <td>${state.confirmed.toLocaleString("en-IN")}</td>
+    <td>${state.loc}</td>
+    <td>${state.totalConfirmed.toLocaleString("en-IN")}</td>
     <td>${state.deaths.toLocaleString("en-IN")}</td>
-    <td>${state.recovered.toLocaleString("en-IN")}</td>
+    <td>${state.discharged.toLocaleString("en-IN")}</td>
   </tr>
   `;
 };
