@@ -28,6 +28,16 @@ const renderError = function (
   container.insertAdjacentHTML("beforeend", html);
 };
 
+// To render loading spinner
+const renderSpinner = function () {
+  const html = `
+  <div class="load__container">
+    <div class="loader"></div>
+  </div>
+  `;
+  container.insertAdjacentHTML("beforeend", html);
+};
+
 // Getting data from API calls
 // data is of Total Country Cases and Statewise data
 // data1 is of Medicine Suppliers
@@ -35,6 +45,8 @@ const renderError = function (
 // data3 is of Ambulance Drivers
 const getData = async function () {
   try {
+    renderSpinner();
+
     const data = await getJSON(
       "https://api.rootnet.in/covid19-in/stats/latest"
     );
@@ -151,6 +163,7 @@ const render = function (data, data1, data2, data3) {
         </table>
       </section>
   `;
+  container.innerHTML = "";
   container.insertAdjacentHTML("beforeend", html);
   container.style.opacity = 1;
 };
