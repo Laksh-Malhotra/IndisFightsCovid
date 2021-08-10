@@ -17,16 +17,6 @@ span {
   color: #dc2f02;
 }
 
-.btn {
-  border-radius: 8px;
-  background-color: #fff;
-  padding: 0.5rem;
-}
-
-.btn + .btn {
-  margin-left: 0.5rem;
-}
-
 .mb-1 {
   margin-bottom: 1rem;
 }
@@ -146,10 +136,7 @@ body {
     justify-content: space-around;
   }
 
-  #stateview,
-  #medicine,
-  #oxygen,
-  #ambulance {
+  #stateview {
     margin: 2rem 0;
     overflow-x: auto;
 
@@ -203,6 +190,14 @@ body {
   padding: 0.5rem 0;
 }
 
+// Pie Chart
+.chart {
+  margin: 0 auto;
+  margin-top: 2rem;
+  width: 400px;
+  height: 400px;
+}
+
 @media only screen and (max-width: 600px) {
   body {
     background: #0575e6; /* fallback for old browsers */
@@ -229,30 +224,11 @@ body {
     #info-1 {
       flex-direction: column;
     }
+  }
 
-    // Buttons
-    .btn-1 {
-      grid-area: btn1;
-    }
-
-    .btn-2 {
-      grid-area: btn2;
-    }
-
-    .btn-3 {
-      grid-area: btn3;
-    }
-
-    .btn-4 {
-      grid-area: btn4;
-    }
-
-    .button {
-      display: grid;
-      grid-gap: 0.5rem;
-      grid-template-areas:
-        "btn1 btn2"
-        "btn3 btn4";
-    }
+  // Pie Chart
+  .chart {
+    width: 260px;
+    height: 280px;
   }
 }

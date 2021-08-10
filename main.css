@@ -17,16 +17,6 @@ span {
   color: #dc2f02;
 }
 
-.btn {
-  border-radius: 8px;
-  background-color: #fff;
-  padding: 0.5rem;
-}
-
-.btn + .btn {
-  margin-left: 0.5rem;
-}
-
 .mb-1 {
   margin-bottom: 1rem;
 }
@@ -157,18 +147,12 @@ body #info-1 {
       justify-content: space-around;
 }
 
-body #stateview,
-body #medicine,
-body #oxygen,
-body #ambulance {
+body #stateview {
   margin: 2rem 0;
   overflow-x: auto;
 }
 
-body #stateview h2,
-body #medicine h2,
-body #oxygen h2,
-body #ambulance h2 {
+body #stateview h2 {
   margin-bottom: 1rem;
 }
 
@@ -213,6 +197,13 @@ body footer .socials a {
   padding: 0.5rem 0;
 }
 
+.chart {
+  margin: 0 auto;
+  margin-top: 2rem;
+  width: 400px;
+  height: 400px;
+}
+
 @media only screen and (max-width: 600px) {
   body {
     background: #0575e6;
@@ -234,31 +225,9 @@ body footer .socials a {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  body .btn-1 {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-    grid-area: btn1;
-  }
-  body .btn-2 {
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
-    grid-area: btn2;
-  }
-  body .btn-3 {
-    -ms-grid-row: 2;
-    -ms-grid-column: 1;
-    grid-area: btn3;
-  }
-  body .btn-4 {
-    -ms-grid-row: 2;
-    -ms-grid-column: 2;
-    grid-area: btn4;
-  }
-  body .button {
-    display: -ms-grid;
-    display: grid;
-    grid-gap: 0.5rem;
-        grid-template-areas: "btn1 btn2" "btn3 btn4";
+  .chart {
+    width: 260px;
+    height: 280px;
   }
 }
 /*# sourceMappingURL=main.css.map */
