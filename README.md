@@ -8,7 +8,6 @@ https://indiafightscovid.netlify.app
 API used in this project:-
 
 1. https://api.rootnet.in/
-2. https://coronasafe.network/
 
 Technologies Used:-
 
